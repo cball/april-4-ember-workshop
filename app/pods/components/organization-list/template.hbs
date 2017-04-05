@@ -1,0 +1,17 @@
+{{#each organizations as |organization|}}
+  <li class={{if organization.isStarred 'starred'}} {{action on-select-organization organization}}>
+    {{#if hasBlock}}
+      {{yield organization true}}
+    {{else}}
+      {{organization.login}}
+    {{/if}}
+  </li>
+{{else}}
+  <li>
+    {{#if hasBlock}}
+      {{yield to='inverse'}}
+    {{else}}
+      <li>No items</li>
+    {{/if}}
+  </li>
+{{/each}}

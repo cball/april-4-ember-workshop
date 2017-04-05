@@ -1,0 +1,16 @@
+{{#if (gt starredOrganizations.length 0)}}
+  You have {{decorate-number starredOrganizations.length yell=true}} stars
+{{else}}
+  {{decorate-number 0}} stars...
+{{/if}}
+
+{{#organization-list
+  organizations=organizations
+  on-select-organization=on-select-organization as |myOrg|}}
+
+  <img src={{myOrg.avatar_url}} /> {{myOrg.login}}
+{{else}}
+  whaaat
+{{/organization-list}}
+
+{{organization-list organizations=organizations}}
