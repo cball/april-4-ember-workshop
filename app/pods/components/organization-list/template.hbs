@@ -1,11 +1,13 @@
 {{#each organizations as |organization|}}
-  <li class={{if organization.isStarred 'starred'}} {{action on-select-organization organization}}>
+  {{#link-to 'organizations.organization' organization.login tagName='li'}}
     {{#if hasBlock}}
       {{yield organization true}}
     {{else}}
       {{organization.login}}
     {{/if}}
-  </li>
+
+    <span class="star {{if organization.isStarred 'starred'}}" {{action on-select-organization organization bubbles=false}}>*</span>
+  {{/link-to}}
 {{else}}
   <li>
     {{#if hasBlock}}

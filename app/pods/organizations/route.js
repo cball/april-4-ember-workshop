@@ -1,6 +1,7 @@
 import Ember from 'ember';
 // import service from 'ember-service/inject';
 import RSVP from 'rsvp';
+import loadSlow from '../../utils/load-slow';
 
 export default Ember.Route.extend({
   github: Ember.inject.service(),
@@ -16,11 +17,14 @@ export default Ember.Route.extend({
 
     // TODO: DISCUSS error handling
 
-    return RSVP.all([
+    let request = RSVP.all([
       ember,
       echobind,
       visitdays
-    ])
+    ]);
+
+    return loadSlow(request, 1000);
+
     //  catch(() => {
     //    // show an error flash and transition
     //

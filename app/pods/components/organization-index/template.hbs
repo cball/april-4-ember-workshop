@@ -4,13 +4,21 @@
   {{decorate-number 0}} stars...
 {{/if}}
 
-{{#organization-list
-  organizations=organizations
-  on-select-organization=on-select-organization as |myOrg|}}
+<div class="container">
+  <div class="sidebar">
+    {{#organization-list
+      organizations=organizations
+      on-select-organization=on-select-organization as |myOrg|}}
 
-  <img src={{myOrg.avatar_url}} /> {{myOrg.login}}
-{{else}}
-  whaaat
-{{/organization-list}}
+      <img src={{myOrg.avatar_url}} /> {{myOrg.login}}
+    {{else}}
+      whaaat
+    {{/organization-list}}
 
-{{organization-list organizations=organizations}}
+    {{organization-list organizations=organizations}}
+  </div>
+
+  <div class="main">
+    {{yield}}
+  </div>
+</div>
