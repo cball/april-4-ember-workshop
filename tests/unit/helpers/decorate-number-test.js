@@ -1,12 +1,12 @@
-
+import { expect } from 'chai';
+import { describe, it } from 'mocha';
 import { decorateNumber } from 'repo-browser/helpers/decorate-number';
-import { module, test } from 'qunit';
 
-module('Unit | Helper | decorate number');
-
-// Replace this with your real tests.
-test('it works', function(assert) {
-  let result = decorateNumber([42]);
-  assert.ok(result);
+describe('Unit | Helper | decorate number', function() {
+  // Replace this with your real tests.
+  it('works', function() {
+    let result = decorateNumber(42);
+    expect(result).to.be.ok;
+  });
 });
 

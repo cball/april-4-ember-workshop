@@ -1,24 +1,28 @@
+import { expect } from 'chai';
+import { describe, it, beforeEach } from 'mocha';
 import Ember from 'ember';
 import { initialize } from 'repo-browser/initializers/inject-github';
-import { module, test } from 'qunit';
 import destroyApp from '../../helpers/destroy-app';
 
-module('Unit | Initializer | inject github', {
-  beforeEach() {
-    Ember.run(() => {
-      this.application = Ember.Application.create();
-      this.application.deferReadiness();
+describe('Unit | Initializer | inject github', function() {
+  let application;
+
+  beforeEach(function() {
+    Ember.run(function() {
+      application = Ember.Application.create();
+      application.deferReadiness();
     });
-  },
-  afterEach() {
-    destroyApp(this.application);
-  }
-});
+  });
 
-// Replace this with your real tests.
-test('it works', function(assert) {
-  initialize(this.application);
+  afterEach(function() {
+    destroyApp(application);
+  });
 
-  // you would normally confirm the results of the initializer here
-  assert.ok(true);
+  // Replace this with your real tests.
+  it('works', function() {
+    initialize(application);
+
+    // you would normally confirm the results of the initializer here
+    expect(true).to.be.ok;
+  });
 });
