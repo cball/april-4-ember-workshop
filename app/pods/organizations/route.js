@@ -4,8 +4,6 @@ import RSVP from 'rsvp';
 import loadSlow from '../../utils/load-slow';
 
 export default Ember.Route.extend({
-  github: Ember.inject.service(),
-
   model() {
     // return [
     //   { id: 1, login: 'Org 1', isStarred: true, avatar_url: 'https://api.adorable.io/avatars/285/hello@visitdays.com.png' },
