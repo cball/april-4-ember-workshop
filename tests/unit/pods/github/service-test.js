@@ -5,7 +5,7 @@ import { setupTest } from 'ember-mocha';
 describe('Unit | Service | github', function() {
   setupTest('service:github', {
     // Specify the other units that are required for this test.
-    // needs: ['service:foo']
+    needs: ['service:ajax']
   });
 
   // Replace this with your real tests.

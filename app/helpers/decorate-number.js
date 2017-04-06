@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function decorateNumber([number], { yell }) {
+export function decorateNumber([number], { yell } = {}) {
   let character = characterForNumber(number);
   let string = `${character} ${number} ${character}`;
 
