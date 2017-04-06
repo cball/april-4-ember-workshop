@@ -1,11 +1,20 @@
 import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { gt } from 'repo-browser/helpers/gt';
+import { describe, it, beforeEach } from 'mocha';
+import { setupComponentTest } from 'ember-mocha';
+import hbs from 'htmlbars-inline-precompile';
 
-describe('Unit | Helper | gt', function() {
-  // Replace this with your real tests.
-  it('works', function() {
-    let result = gt([42, 3]);
-    expect(result).to.be.ok;
+describe('Integration | Helper | gt', function() {
+  setupComponentTest('gt', {
+    integration: true
   });
+
+  describe('with proper arguments', function() {
+    beforeEach(function() {
+      this.render(hbs`{{gt 3 1}}`);
+    });
+
+    it('returns true', function() {
+      expect(this.$().text().trim()).to.equal('true');
+    });
+  })
 });
