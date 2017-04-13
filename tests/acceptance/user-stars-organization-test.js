@@ -30,6 +30,10 @@ describe('Acceptance | user stars organization', function() {
         starOrganization('visitdays');
         starOrganization('echobind');
       });
+
+      it('updates the star count properly', function() {
+        expect(hasStarCount(2)).to.be.ok;
+      });
     });
   });
 });
@@ -39,9 +43,5 @@ function hasStarCount(number) {
 }
 
 function starOrganization(name) {
-  return findOrganization(name).find('span');
-}
-
-function findOrganization(name) {
-  return find(`li:contains(${name})`);
+  return click(`li:contains(${name}) .star`);
 }
