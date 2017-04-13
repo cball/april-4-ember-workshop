@@ -1,8 +1,10 @@
-{{#if (gt starredOrganizations.length 0)}}
-  You have {{decorate-number starredOrganizations.length yell=true}} stars
-{{else}}
-  {{decorate-number 0}} stars...
-{{/if}}
+<div data-test="number-of-stars">
+  {{#if (gt starredOrganizations.length 0)}}
+    You have {{decorate-number starredOrganizations.length yell=true}} stars
+  {{else}}
+    {{decorate-number 0}} stars...
+  {{/if}}
+</div>
 
 <div class="container">
   <div class="sidebar">
