@@ -18,6 +18,8 @@ describe('Acceptance | user views organization', function() {
 
   describe('visiting /organizations and clicking', function() {
     beforeEach(function() {
+      server.create('organization', { login: 'visitdays' });
+
       visit('/organizations');
       click(VISIT_DAYS);
     });

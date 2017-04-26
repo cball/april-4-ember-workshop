@@ -18,6 +18,9 @@ describe('Acceptance | user stars organization', function() {
 
   describe('with no stars', function() {
     beforeEach(function() {
+      server.create('organization', { login: 'visitdays' });
+      server.create('organization', { login: 'echobind' });
+
       visit('/organizations');
     });
 
